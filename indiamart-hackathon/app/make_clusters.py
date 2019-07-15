@@ -2,7 +2,7 @@ import numpy as np
 import StringIO
 import base64
 from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import logging, itertools
 import pandas as pd
 
@@ -26,14 +26,14 @@ class Cluster:
         kmeans = [KMeans(n_clusters=i).fit(X) for i in n_cluster]
         scores = [kmeans[i].score(X) for i in range(len(kmeans))]
 
-        fig, ax = plt.subplots(figsize=(10, 6))
-        ax.plot(n_cluster, scores)
-        plt.xlabel('Number of Clusters')
-        plt.ylabel('Score')
-        plt.title('Elbow Curve')
-        plt.xticks(range(0, 20, 2))
-        plt.savefig(img, format='png')
-        plt.close()
+        # fig, ax = plt.subplots(figsize=(10, 6))
+        # ax.plot(n_cluster, scores)
+        # plt.xlabel('Number of Clusters')
+        # plt.ylabel('Score')
+        # plt.title('Elbow Curve')
+        # plt.xticks(range(0, 20, 2))
+        # plt.savefig(img, format='png')
+        # plt.close()
 
         plot_url = base64.b64encode(img.getvalue())
         return plot_url
@@ -46,10 +46,10 @@ class Cluster:
         kmeans = KMeans(num, random_state=0, init="k-means++")
         labels = kmeans.fit(X).predict(X)
         self.lables = labels
-        fig = plt.figure(1, figsize=(14, 14))
+        # fig = plt.figure(1, figsize=(14, 14))
         for i, (ind, color) in enumerate(zip(range(num), color_iter)):
             l = X[labels == i, 0]
-            plt.scatter(np.array([i for j in range(len(l))]), l, 8, color=color)
+            # plt.scatter(np.array([i for j in range(len(l))]), l, 8, color=color)
 
         return kmeans
 
