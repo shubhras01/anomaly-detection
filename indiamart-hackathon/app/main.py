@@ -1,4 +1,4 @@
-import logging, json
+import logging, json, os
 from pprint import pprint
 from pint import UnitRegistry, UndefinedUnitError
 
@@ -10,7 +10,9 @@ logging.basicConfig(level=logging.INFO)
 OUTLIER_FRACTION = 0.01
 
 ## initialize data
-prepareData = PrepareData("../hackathon_price_data.csv")
+SCRIPT_PATH = os.path.dirname(os.path.abspath(__file__))
+print SCRIPT_PATH
+prepareData = PrepareData(SCRIPT_PATH + "/../hackathon_price_data.csv")
 
 ## initialize unit registry
 ureg = UnitRegistry()
