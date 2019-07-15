@@ -2,6 +2,6 @@ flask
 pandas
 pint
 numpy
-sklearn
+scikit==0.19.1
 matplotlib
 gunicorn
